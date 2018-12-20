@@ -132,7 +132,7 @@ public class TestCase {
       int freq;
 
       System.out.println("Check Space'length and Target'length is zero");
-      myObject = s4.B161846.Frequencer();
+      myObject = new s4.B161846.Frequencer();
       myObject.setSpace("".getBytes());
       myObject.setTarget("".getBytes());
       freq = myObject.frequency();
@@ -169,12 +169,12 @@ public class TestCase {
       System.out.println("Exception occurred: STOP");
       e.printStackTrace();
     }
-
+    //Targetの最初の文字とSpaceの最後の文字が一致するとき
   try {
     FrequencerInterface myObject;
     int freq;
 
-    System.out.println("");
+    System.out.println("Check when correspond last letter of Space and first letter of Target");
     myObject = new s4.B161846.Frequencer();
     myObject.setSpace("bbadfiokjb".getBytes());
     myObject.setTarget("bb".getBytes());
@@ -182,6 +182,7 @@ public class TestCase {
     }
     catch(Exception e) {
       System.out.println("Exception occurred: STOP");
+      e.printStackTrace();
     }
 
 
