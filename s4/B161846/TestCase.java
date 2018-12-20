@@ -46,6 +46,109 @@ public class TestCase {
 	    System.out.println("Exception occurred: STOP");
 	}
 
+  //SPACE's length is zero
+    try {
+        FrequencerInterface myObject;
+        int freq;
+
+        System.out.println("Check s4.B161846.Frequencer.setSpace'length is zero");
+        myObject = new s4.B161846.Frequencer();
+        myObject.setSpace(" ".getBytes());
+        myObject.setTarget("H".getBytes());
+        freq = myObject.frequency();
+        if (freq == 0) {
+          System.out.println("OK");
+        }
+        else {
+          System.out.println("WRONG");
+        }
+    }
+    catch(Exception e) {
+        System.out.println("Exception occurred: STOP");
+    }
+//SPACE is not set
+    try {
+        FrequencerInterface myObject;
+        int freq;
+
+        System.out.println("Check s4.B161846.Frequencer.setSpace is not set");
+        myObject = new s4.B161846.Frequencer();
+        myObject.setTarget("H".getBytes());
+        freq = myObject.frequency();
+        if (freq == 0) {
+          System.out.println("OK");
+        }
+        else {
+          System.out.println("WRONG");
+        }
+    }
+    catch(Exception e) {
+        System.out.println("Exception occurred: STOP");
+    }
+
+    //TARGET is not set
+    try {
+      FrequencerInterface myObject;
+      int freq;
+
+      System.out.println("Check s4.B161846.Frequencer.setTarget is not set");
+      myObject = new s4.B161846.Frequencer();
+      myObject.setSpace("Hi Ho Hi Ho".getBytes());
+      freq  = myObject.frequency();
+      if(freq == -1) {
+        System.out.println("OK");
+      }
+      else {
+        System.out.println("WRONG");
+      }
+    }
+    catch(Exception e) {
+      System.out.println("Exception occurred: STOP");
+    }
+
+//TARGET'length is zero
+    try {
+      FrequencerInterface myObject;
+      int freq;
+
+      System.out.println("Check s4.B161846.Frequencer.setTarget is Space");
+      myObject = new s4.B161846.Frequencer();
+      myObject.setSpace("Hi Ho Hi Ho".getBytes());
+      myObject.setTarget(" ".getBytes());
+      freq  = myObject.frequency();
+      if(freq == -1) {
+        System.out.println("OK");
+      }
+      else {
+        System.out.println("WRONG");
+      }
+    }
+    catch(Exception e) {
+      System.out.println("Exception occurred: STOP");
+    }
+
+    try {
+      FrequencerInterface myObject;
+      int freq;
+
+      System.out.println("Check s4.B161846.Frequencer");
+      myObject = new s4.B161846.Frequencer();
+      myObject.setSpace("I have a pen".getBytes());
+      myObject.setTarget("a".getBytes());
+      freq = myObject.frequency();
+      System.out.println("\"a\" in \"I have a pen\" is appears " + freq + " times");
+      if(freq > 0) {
+        System.out.println("OK");
+      }
+      else {
+        System.out.println("WRONG");
+      }
+
+    }
+    catch(Exception e) {
+      System.out.println("Excep;tion occurred: STOP");
+    }
+
 	try {
 	    InformationEstimatorInterface myObject;
 	    double value;
@@ -69,28 +172,7 @@ public class TestCase {
 	    System.out.println("Exception occurred: STOP");
 	}
 
-//SPACE's length is zero
-  try {
-      FrequencerInterface myObject;
-      int freq;
 
-      System.out.println("Check s4.B161846.Frequencer.serSpace'length is zero");
-      myObject = new s4.B161846.Frequencer();
-      myObject.setSpace(" A".getBytes());
-      myObject.setTarget("".getBytes());
-      freq = myObject.frequency();
-      if (freq == 0) {
-        System.out.println("OK");
-      }
-      else {
-        System.out.println("WRONG");
-      }
-
-
-  }
-  catch(Exception e) {
-      System.out.println("Exception occurred: STOP");
-  }
 
     }
 }
