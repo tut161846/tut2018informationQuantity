@@ -131,13 +131,33 @@ public class TestCase {
       FrequencerInterface myObject;
       int freq;
 
-      System.out.println("Check s4.B161846.Frequencer");
-      myObject = new s4.B161846.Frequencer();
-      myObject.setSpace("I have a pen".getBytes());
-      myObject.setTarget("a".getBytes());
+      System.out.println("Check Space'length and Target'length is zero");
+      myObject = s4.B161846.Frequencer();
+      myObject.setSpace("".getBytes());
+      myObject.setTarget("".getBytes());
       freq = myObject.frequency();
-      System.out.println("\"a\" in \"I have a pen\" is appears " + freq + " times");
-      if(freq > 0) {
+      if(freq == 0) {
+        System.out.println("OK");
+      }
+      else {
+        System.out.println("WRONG");
+      }
+    }
+    catch(Exception e) {
+      System.out.println("Exception occurred: STOP");
+    }
+
+//Frequencerクラスの問題を明らかにする
+//SPACEがすべて同じ文字で、TARGETがその文字を複数もつ
+    try {
+      FrequencerInterface myObject;
+      int freq;
+      System.out.println("Check SPACE is same character");
+      myObject = new s4.B161846.Frequencer();
+      myObject.setSpace("aaaaa".getBytes());
+      myObject.setTarget("aa".getBytes());
+      freq = myObject.frequency();
+      if(freq == 2) {
         System.out.println("OK");
       }
       else {
@@ -146,8 +166,24 @@ public class TestCase {
 
     }
     catch(Exception e) {
-      System.out.println("Excep;tion occurred: STOP");
+      System.out.println("Exception occurred: STOP");
+      e.printStackTrace();
     }
+
+  try {
+    FrequencerInterface myObject;
+    int freq;
+
+    System.out.println("");
+    myObject = new s4.B161846.Frequencer();
+    myObject.setSpace("bbadfiokjb".getBytes());
+    myObject.setTarget("bb".getBytes());
+    freq = myObject.frequency();
+    }
+    catch(Exception e) {
+      System.out.println("Exception occurred: STOP");
+    }
+
 
 	try {
 	    InformationEstimatorInterface myObject;
@@ -172,7 +208,12 @@ public class TestCase {
 	    System.out.println("Exception occurred: STOP");
 	}
 
-
+/*
+ *問題その1
+ *FrequencerのFrequencyメソッドにおいて、mySpaceの最後の文字と
+ *myTargetの最初の文字が一致し、かつmyTargetが複数文字で構成されているとき、
+ *mySpaceの配列サイズを超えた部分を参照している。
+*/
 
     }
 }
