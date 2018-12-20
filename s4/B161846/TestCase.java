@@ -1,4 +1,4 @@
-package s4.B161846; // Please modify to s4.Bnnnnnn, where nnnnnn is your student ID. 
+package s4.B161846; // Please modify to s4.Bnnnnnn, where nnnnnn is your student ID.
 import java.lang.*;
 import s4.specification.*;
 
@@ -24,8 +24,8 @@ public interface InformationEstimatorInterface{
 // It returns Double.MAX_VALUE, when the true value is infinite, or space is not set.
 // The behavior is undefined, if the true value is finete but larger than Double.MAX_VALUE.
 // Note that this happens only when the space is unreasonably large. We will encounter other problem anyway.
-// Otherwise, estimation of information quantity, 
-}                        
+// Otherwise, estimation of information quantity,
+}
 */
 
 
@@ -69,6 +69,28 @@ public class TestCase {
 	    System.out.println("Exception occurred: STOP");
 	}
 
+//SPACE's length is zero
+  try {
+      FrequencerInterface myObject;
+      int freq;
+
+      System.out.println("Check s4.B161846.Frequencer.serSpace'length is zero");
+      myObject = new s4.B161846.Frequencer();
+      myObject.setSpace(" A".getBytes());
+      myObject.setTarget("".getBytes());
+      freq = myObject.frequency();
+      if (freq == 0) {
+        System.out.println("OK");
+      }
+      else {
+        System.out.println("WRONG");
+      }
+
+
+  }
+  catch(Exception e) {
+      System.out.println("Exception occurred: STOP");
+  }
+
     }
-}	    
-	    
+}
