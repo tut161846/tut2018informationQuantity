@@ -1,4 +1,4 @@
-package s4.umemura;
+package s4.B161846;
 import java.lang.*;
 import s4.specification.*;
 
@@ -139,16 +139,17 @@ public class Frequencer implements FrequencerInterface{
 	//
 	// ****  Please write code here... ***
 	//
+  int k = suffixArray[i];
   while(true) {
-    if(mySpace[i] > myTarget[j])
+    if(mySpace[k] > myTarget[j])
       return -1;
-    else if(mySpace[i] < myTarget[j])
+    else if(mySpace[k] < myTarget[j])
       return 1;
-    else if(mySpace[i] == myTarget[j]) {
-      i++; j++;
-      if((i >= mySpace.length) && (j >= end))
+    else if(mySpace[k] == myTarget[j]) {
+      k++; j++;
+      if((k >= mySpace.length) && (j >= end))
         return 0;
-      else if(i >= mySpace.length)
+      else if(k >= mySpace.length)
         return 1;
       else if(j >= end)
         return 0;
@@ -165,8 +166,18 @@ public class Frequencer implements FrequencerInterface{
 	// For "Ho ", it will return 6 for "Hi Ho Hi Ho".
 	//
 	// ****  Please write code here... ***
-	//
-	return suffixArray.length; // This line should be modified.
+  int i = 0;
+  int tmp = suffixArray.length - 1;
+  while(i < mySpace.length) {
+    int chk;
+    chk = targetCompare(i, start, end);
+    if(chk == 0)
+      break;
+    i++;
+  }
+  //
+	//return suffixArray.length; // This line should be modified.
+  return i;
     }
 
     private int subByteEndIndex(int start, int end) {
@@ -177,7 +188,16 @@ public class Frequencer implements FrequencerInterface{
 	//
 	// ****  Please write code here... ***
 	//
-	return suffixArray.length; // This line should be modified.
+  int i = 0;
+  while(i < suffixArray.length) {
+    int chk;
+    chk = targetCompare(i, start, end);
+    if(chk == -1)
+        break;
+    i++;
+  }
+	//return suffixArray.length; // This line should be modified.
+  return i;
     }
 
     public int subByteFrequency(int start, int end) {
@@ -227,13 +247,13 @@ public class Frequencer implements FrequencerInterface{
 	       A:o Hi Ho
 	    */
 
-	    frequencerObject.setTarget("H".getBytes());
+	    frequencerObject.setTarget("Ho".getBytes());
 	    //
 	    // ****  Please write code to check subByteStartIndex, and subByteEndIndex
 	    //
       int test;
-      test = frequencerObject.targetCompare(1, 0, 1);
-      System.out.println(test);
+        test = frequencerObject.targetCompare(1, 0, 2);
+        System.out.println(test);
 
 	    int result = frequencerObject.frequency();
 	    System.out.print("Freq = "+ result+" ");
